@@ -14,7 +14,7 @@
   </head>
 
   <body itemscope itemtype="http://schema.org/Person">
-    
+
     <div class="container">
       <section class="row">
         <div class="card-wrapper">
@@ -71,14 +71,14 @@
                   {{/if}}
 
                 </div>
-                
+
             </div>
             <hr>
 
             <div class="social-links">
               {{#profiles}}
                 <a class="social-link" href="{{url}}" target="_blank">
-                  <span class="fa fa-{{toClassName network}} fa-2x"></span> 
+                  <span class="fa fa-{{toClassName network}} fa-2x"></span>
                   <span class="social-link-text">{{url}}</span>
                 </a>
               {{/profiles}}
@@ -114,7 +114,19 @@
                       </small>
                     </p>
                     <p>{{summary}}</p>
+
+
+                    {{#if toolsUsed}}
+                    <h5 class="text-muted">Tools used</h5>
+                    <ul>
+                      {{#each toolsUsed}}
+                        <li><strong>{{@key}}:</strong> {{this}}</li>
+                      {{/each}}
+                    </ul>
+                    {{/if}}
+
                     {{#if highlights}}
+                    <h5 class="text-muted">Highlights</h5>
                       <ul>
                         {{#each highlights}}
                           <li> {{.}} </li>
@@ -131,14 +143,14 @@
             <ul class="list-unstyled">
               {{#each resume.skills}}
                 <li class="card-nested skill {{skill_class}}">
-                  <strong>{{name}} ({{skill_class}}):</strong> 
+                  <strong>{{name}} ({{skill_class}}):</strong>
                   {{#keywords}} <span class="enumeration">{{.}}</span> {{/keywords}}
               </li>
               {{/each}}
             </ul>
-  
+
             <h4 id="education"><span class="fa fa-lg fa-mortar-board"></span> <span class="title">Education</span></h4>
-            
+
             <ul class="list-unstyled">
               {{#each resume.education}}
                 <li class="card-nested">
@@ -225,7 +237,7 @@
                     </p>
                     <p class="clear-margin">{{summary}}</p>
                   </div>
-                  
+
                 </li>
               {{/each}}
             </ul>
@@ -281,6 +293,6 @@
         </div>
       </section>
     </div>
-    
+
   </body>
 </html>
